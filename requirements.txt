@@ -1,0 +1,5 @@
+os-android-apk-builder==1.29
+os-android-app-version-changer==1.5
+os-file-handler==1.10
+os-file-stream-handler==1.10
+os-tools==4.54
