@@ -33,6 +33,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 	def connect_handlers(self):
 		self.generateApk_pushButton.clicked.connect(self.generateApk_pushButton__onClick)
+		self.generateAppBundle_pushButton.clicked.connect(self.generateAppBundle_pushButton__onClick)
 		self.browseProjectFolder_pushButton.clicked.connect(self.browseProjectFolder_pushButton__onClick)
 		self.browseApkDestinationFolder_pushButton.clicked.connect(self.browseApkDestinationFolder_pushButton__onClick)
 		self.browseKeystoreFile_pushButton.clicked.connect(self.browseKeystoreFile_pushButton__onClick)
@@ -40,7 +41,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 	def generateApk_pushButton__onClick(self):
 		self.generateApk_pushButton.setEnabled(False)
+		self.generateAppBundle_pushButton.setEnabled(False)
 		self.bot_starting_thread = Thread(target=self.__build_apk)
+		self.bot_starting_thread.start()
+
+	def generateAppBundle_pushButton__onClick(self):
+		self.generateApk_pushButton.setEnabled(False)
+		self.generateAppBundle_pushButton.setEnabled(False)
+		self.bot_starting_thread = Thread(target=self.__build_app_bundle)
 		self.bot_starting_thread.start()
 
 	def browseProjectFolder_pushButton__onClick(self):
@@ -76,6 +84,28 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 			print(e)
 			self.showDialog_pyqtSignal.emit('Something went wrong!',
 											'An error occured while building Apk.',
+											'', str(e))
+		self.generateApk_pushButton.setEnabled(True)
+		self.generateAppBundle_pushButton.setEnabled(True)
+
+	def __build_app_bundle(self):
+		self.process = QtCore.QProcess(self)
+		self.process.readyReadStandardOutput.connect(lambda: print(str(self.process.readAllStandardOutput())))
+		self.process.readyReadStandardError.connect(lambda: print(str(self.process.readAllStandardError())))
+		self.process.started.connect(lambda: print('- Started!'))
+		self.process.finished.connect(lambda: print('- Finished!'))
+		try:
+			apkmaker.make_app_bundle(project_path=self.projectFolder_lineEdit.text(),
+								app_bundle_destination_path=self.destinationFolder_lineEdit.text(),
+								keystore_path=self.keystoreFile_lineEdit.text(),
+								key_alias=self.keyAlias_lineEdit.text(),
+								key_password=self.keyPassword_lineEdit.text(),
+								store_password=self.storePassword_lineEdit.text())
+			self.showDialog_pyqtSignal.emit('Build completed!', 'App bundle generated successfully!', '', '')
+		except Exception as e:
+			print(e)
+			self.showDialog_pyqtSignal.emit('Something went wrong!',
+											'An error occured while building App bundle.',
 											'', str(e))
 		self.generateApk_pushButton.setEnabled(True)
 

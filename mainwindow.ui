@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>539</width>
+    <width>641</width>
     <height>438</height>
    </rect>
   </property>
@@ -21,9 +21,9 @@
    <widget class="QPushButton" name="generateApk_pushButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>160</y>
-      <width>91</width>
+      <x>390</x>
+      <y>140</y>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
@@ -34,7 +34,7 @@
    <widget class="QPushButton" name="browseProjectFolder_pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>470</x>
       <y>40</y>
       <width>75</width>
       <height>23</height>
@@ -50,7 +50,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>210</x>
       <y>40</y>
       <width>251</width>
       <height>20</height>
@@ -63,7 +63,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>210</x>
       <y>70</y>
       <width>251</width>
       <height>20</height>
@@ -73,7 +73,7 @@
    <widget class="QPushButton" name="browseApkDestinationFolder_pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>470</x>
       <y>70</y>
       <width>75</width>
       <height>23</height>
@@ -89,7 +89,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>210</x>
       <y>100</y>
       <width>251</width>
       <height>20</height>
@@ -99,7 +99,7 @@
    <widget class="QPushButton" name="browseKeystoreFile_pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>470</x>
       <y>100</y>
       <width>75</width>
       <height>23</height>
@@ -112,9 +112,9 @@
    <widget class="QLineEdit" name="keyAlias_lineEdit">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>180</x>
       <y>140</y>
-      <width>111</width>
+      <width>151</width>
       <height>20</height>
      </rect>
     </property>
@@ -125,9 +125,9 @@
    <widget class="QLineEdit" name="keyPassword_lineEdit">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>180</x>
       <y>170</y>
-      <width>111</width>
+      <width>151</width>
       <height>20</height>
      </rect>
     </property>
@@ -141,9 +141,9 @@
    <widget class="QLineEdit" name="storePassword_lineEdit">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>180</x>
       <y>200</y>
-      <width>111</width>
+      <width>151</width>
       <height>20</height>
      </rect>
     </property>
@@ -154,7 +154,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>130</x>
       <y>40</y>
       <width>71</width>
       <height>20</height>
@@ -167,20 +167,20 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>70</y>
-      <width>111</width>
-      <height>16</height>
+      <width>171</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Apk Destination Folder:</string>
+     <string>Apk/App Bundle Destination Folder:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>130</x>
       <y>100</y>
       <width>71</width>
       <height>16</height>
@@ -193,7 +193,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>120</x>
       <y>140</y>
       <width>51</width>
       <height>20</height>
@@ -206,7 +206,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>100</x>
       <y>170</y>
       <width>71</width>
       <height>20</height>
@@ -219,7 +219,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>90</x>
       <y>200</y>
       <width>81</width>
       <height>20</height>
@@ -235,9 +235,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>270</y>
-      <width>451</width>
+      <width>601</width>
       <height>141</height>
      </rect>
     </property>
@@ -339,7 +339,7 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>250</y>
       <width>31</width>
       <height>16</height>
@@ -347,6 +347,19 @@
     </property>
     <property name="text">
      <string>Log:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="generateAppBundle_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>190</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Generate App Bundle</string>
     </property>
    </widget>
   </widget>
