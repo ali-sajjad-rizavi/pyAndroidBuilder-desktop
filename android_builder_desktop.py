@@ -4,7 +4,7 @@ Ui_MainWindow, _ = uic.loadUiType('mainwindow.ui')
 from threading import Thread
 import sys
 #
-import apkmaker
+import utils
 
 
 class TextEditStream:
@@ -73,12 +73,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.process.started.connect(lambda: print('- Started!'))
 		self.process.finished.connect(lambda: print('- Finished!'))
 		try:
-			apkmaker.make_apk(project_path=self.projectFolder_lineEdit.text(),
-								apk_destination_path=self.destinationFolder_lineEdit.text(),
-								keystore_path=self.keystoreFile_lineEdit.text(),
-								key_alias=self.keyAlias_lineEdit.text(),
-								key_password=self.keyPassword_lineEdit.text(),
-								store_password=self.storePassword_lineEdit.text())
+			utils.make_apk(project_path=self.projectFolder_lineEdit.text(),
+						   apk_destination_path=self.destinationFolder_lineEdit.text(),
+						   keystore_path=self.keystoreFile_lineEdit.text(),
+						   key_alias=self.keyAlias_lineEdit.text(),
+						   key_password=self.keyPassword_lineEdit.text(),
+						   store_password=self.storePassword_lineEdit.text())
 			self.showDialog_pyqtSignal.emit('Build completed!', 'Apk generated successfully!', '', '')
 		except Exception as e:
 			print(e)
@@ -95,12 +95,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.process.started.connect(lambda: print('- Started!'))
 		self.process.finished.connect(lambda: print('- Finished!'))
 		try:
-			apkmaker.make_app_bundle(project_path=self.projectFolder_lineEdit.text(),
-								app_bundle_destination_path=self.destinationFolder_lineEdit.text(),
-								keystore_path=self.keystoreFile_lineEdit.text(),
-								key_alias=self.keyAlias_lineEdit.text(),
-								key_password=self.keyPassword_lineEdit.text(),
-								store_password=self.storePassword_lineEdit.text())
+			utils.make_app_bundle(project_path=self.projectFolder_lineEdit.text(),
+								  app_bundle_destination_path=self.destinationFolder_lineEdit.text(),
+								  keystore_path=self.keystoreFile_lineEdit.text(),
+								  key_alias=self.keyAlias_lineEdit.text(),
+								  key_password=self.keyPassword_lineEdit.text(),
+								  store_password=self.storePassword_lineEdit.text())
 			self.showDialog_pyqtSignal.emit('Build completed!', 'App bundle generated successfully!', '', '')
 		except Exception as e:
 			print(e)
