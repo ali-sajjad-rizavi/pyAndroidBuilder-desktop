@@ -8,8 +8,8 @@ import apkmaker
 
 
 class TextEditStream:
-	def __init__(self, textEdit):
-		self.textEdit = textEdit
+	def __init__(self, text_edit):
+		self.textEdit = text_edit
 
 	def write(self, text):
 		self.textEdit.append(text)
